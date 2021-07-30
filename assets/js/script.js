@@ -162,6 +162,44 @@ for (var i=0; i < localStorage.length; i++){
             window.alert("Your score of " + highScore + " has been submitted!")
             break;
         }
-                
-    }
+
+}
+
+answer1BtnEl.addEventListener("mouseover", function() {
+
+    answerCorrectWrong.style.display='none';
     
+});
+    
+answer2BtnEl.addEventListener("mouseover", function() {
+    
+    answerCorrectWrong.style.display='none';
+    
+});
+    
+answer3BtnEl.addEventListener("mouseover", function() {
+
+    answerCorrectWrong.style.display='none';
+    
+});
+    
+answer4BtnEl.addEventListener("mouseover", function() {
+    
+    answerCorrectWrong.style.display='none';
+    
+});
+    
+submitScoreEl.addEventListener("mouseover", function() {
+    
+    answerCorrectWrong.style.display='none';
+    
+});
+    
+function lastQuestionWrong () {
+    if (finalAnswerCheck === 1 && checkTimes === 1) {
+        highScore -= 10;
+        checkTimes = 2;
+        return highScore
+    }
+
+}
