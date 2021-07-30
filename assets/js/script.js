@@ -30,3 +30,21 @@ var enterInitialsTextAreaEl = document.createElement("enterInitialsTextArea");
 
 var button1234 = document.createElement("button"); 
 var timeLeft = 60; 
+
+answer1BtnEl.style.display = 'none';
+answer2BtnEl.style.display = 'none';
+answer3BtnEl.style.display = 'none';
+answer4BtnEl.style.display = 'none';
+submitScoreEl.style.display = 'none';
+answerCorrectWrong.style.display='none';
+enterInitialsTextArea.style.display='none';
+
+var questionsObject = { // correct answers.
+    correct: { 
+        0 : "Commonly used datatypes DO NOT include?",
+        1 : "The condition statement if/else is enclosed with the following:",
+        2 : "Arrays can be used to store the following",  
+        3 : "A very useful tool to debug arrays is:", 
+        4 : "Strings must be enclosed with:"
+    }
+};
