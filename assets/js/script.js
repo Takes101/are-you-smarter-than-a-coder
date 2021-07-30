@@ -48,3 +48,71 @@ var questionsObject = { // correct answers.
         4 : "Strings must be enclosed with:"
     }
 };
+
+var answersObject = { // correct answers.
+    answers: { 
+        0 : {
+            0: "Strings",
+            1: "Boolean",
+            2: "Alerts",
+            3: "Numbers"},
+        1 : {
+            0: "Parentheses",
+            1: "Curly Brackets",
+            2: "Quotes",
+            3: "Square Brackets"},
+        2 : { 
+            0: "Javascript",
+            1: "Terminal/bash",
+            2: "For loops", 
+            3: "Console.log"},      
+        3 : { 
+            0: "Commas",
+            1: "Curly brackets",
+            2: "Quotes", 
+            3: "Parentheses"},      
+        4 : { 
+            0: "Number of strings",
+            1: "Other arrays",
+            2: "Booleans",
+            3: "All of the above"},  
+    }
+};
+
+htmlTimeLeft.textContent = timeLeft;
+
+viewHighScoresBtnEl.addEventListener("click", function() { // View high scores
+
+    var quizUsers = "";
+    var substringTest ="";
+    var highScores = "";
+
+    for (var i=0; i < localStorage.length; i++) {
+        var checkUserValue = [];
+        
+        quizUsers = localStorage.getItem(localStorage.key(i));
+        substringTest = quizUsers.substring(0,4) 
+        if (substringTest == "quiz") {
+            checkUserValue = quizUsers.split(",");
+            var userName = checkUserValue[0]
+            highScores += "User " + userName.substring(4) + " high score is: " + checkUserValue[1] + "\n";
+        }
+    }
+    window.alert(highScores);
+
+});
+
+
+
+var quizLocalStorage = "quiz";
+var quizUserDetails = "";
+var value = [];
+
+
+quizUserDetails = quizLocalStorage + enterInitialsTextArea.value 
+value = [quizUserDetails,highScore] // validation
+
+
+if (!localStorage.length) {
+    localStorage.setItem("test","test");
+}
