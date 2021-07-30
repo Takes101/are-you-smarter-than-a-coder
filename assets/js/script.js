@@ -116,3 +116,52 @@ value = [quizUserDetails,highScore] // validation
 if (!localStorage.length) {
     localStorage.setItem("test","test");
 }
+
+for (var i=0; i < localStorage.length; i++){
+        
+    var checkUser = "";
+    var checkUserValue = [];
+
+    
+    quizUserDetails = quizLocalStorage + enterInitialsTextArea.value;
+
+
+    checkUser = localStorage.getItem(quizUserDetails);
+    
+
+    if (checkUser == null) { // New user
+        localStorage.setItem(quizUserDetails, value); 
+        window.alert("Your score of " + highScore + " has been submitted!")
+        break;
+    } else if (checkUser != null) {
+        checkUserValue = checkUser.split(","); }
+
+    if ( quizUserDetails == checkUserValue[0] && highScore == checkUserValue[1] ) {
+
+
+        
+        localStorage.setItem(quizUserDetails, value);  
+        window.alert(highScore + " " + "is the latest entry for user initial " + enterInitialsTextArea.value + ". Entry will not be added.")
+        break; 
+        } else if (enterInitialsTextArea.value == "") {
+            window.alert("Please enter an initial");
+            break;
+        } else if ( quizUserDetails == checkUserValue[0] && highScore > checkUserValue[1] ) { 
+            // New high score submitted!
+            localStorage.setItem(quizUserDetails, value); // Value is equal to 
+            window.alert("New high score of " + highScore + " has been submitted!.\nYour previous score was " + checkUserValue[1])
+            break; 
+        } else if ( quizUserDetails == checkUserValue[0] && highScore < checkUserValue[1] ) { 
+            // Your previous code was higher!
+            localStorage.setItem(quizUserDetails, value); // Value is equal to 
+            window.alert("Your previous code of " + checkUserValue[1] + " was higher. Entry will not be added.");
+            break; 
+
+        } else { 
+            localStorage.setItem(quizUserDetails, value);  
+            window.alert("Your score of " + highScore + " has been submitted!")
+            break;
+        }
+                
+    }
+    
